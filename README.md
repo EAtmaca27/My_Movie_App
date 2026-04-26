@@ -26,7 +26,7 @@ A command-line movie manager that uses the OMDb API to fetch movie data and stor
 
    ```bash
    git clone <repo-url>
-   cd movie_project_3
+   cd My_Movie_App
    ```
 
 2. **Install dependencies**
@@ -71,7 +71,7 @@ Select>
 ## Project Structure
 
 ```
-movie_project_3/
+My_Movie_App/
 ├── movies.py               # Main application and menu logic
 ├── movie_storage_sql.py    # SQLAlchemy data layer (SQLite)
 ├── movies.db               # SQLite database (auto-created on first run)
