@@ -13,7 +13,7 @@ A command-line movie manager that uses the OMDb API to fetch movie data and stor
 - **Search** — find movies by partial title match
 - **Sort** — order by rating (best to worst or worst to best) or year (newest to oldest or oldest to newest)
 - **Rating histogram** — export a PNG chart of the rating distribution
-- **Generate website** — produce a static _static/index.html movie grid with posters
+- **Generate website** — produce a static `_static/index.html` movie grid with posters and titles, built from `_static/index_template.html` and `_static/style.css`
 
 ## Requirements
 
@@ -68,6 +68,8 @@ The menu will guide you through all available options:
 Select>
 ```
 
+Selecting **10** writes `_static/index.html`. Open that file in any browser to view your movie collection as a poster grid.
+
 ## Project Structure
 
 ```
@@ -85,9 +87,10 @@ My_Movie_App/
 
 ## Tech Stack
 
-| Library | Purpose |
+| Library / Technology | Purpose |
 |---|---|
 | SQLAlchemy | ORM / SQLite database access |
 | requests | OMDb API calls |
-| python-dotenv | .env file loading |
+| python-dotenv | `.env` file loading |
 | matplotlib | Rating histogram export |
+| HTML template + CSS | Static website generation — `index_template.html` with `__TEMPLATE_TITLE__` and `__TEMPLATE_MOVIE_GRID__` placeholders replaced at runtime; styled by `style.css` |
