@@ -51,13 +51,11 @@ def add_movie():
 
         if title == "":
             print("Title cannot be empty!")
-            input("Press Enter to go back to the menu...")
             return
 
         # CHECK if movie already exists
         if title in movies:
             print("This movie already exists!")
-            input("Press Enter to go back to the menu...")
             return
 
         break  # title is valid
@@ -70,21 +68,17 @@ def add_movie():
         data = response.json()
     except requests.exceptions.ConnectionError:
         print("No internet connection. Please check your network.")
-        input("Press Enter to go back to the menu...")
         return
     except requests.exceptions.Timeout:
         print("The request timed out. The API might be down.")
-        input("Press Enter to go back to the menu...")
         return
     except requests.exceptions.RequestException as e:
         print(f"An unexpected error occurred: {e}")
-        input("Press Enter to go back to the menu...")
         return
 
     # API returns "Response": "False" when the movie title is not found
     if data.get("Response") == "False":
         print(f"Movie '{title}' not found. Please check the title.")
-        input("Press Enter to go back to the menu...")
         return
 
     movie_title = data["Title"]
@@ -93,7 +87,6 @@ def add_movie():
     raw_rating = data.get("imdbRating", "N/A")
     if raw_rating == "N/A":
         print(f"'{movie_title}' has no IMDb rating yet.")
-        input("Press Enter to go back to the menu...")
         return
 
     rating = float(raw_rating)
